@@ -28,6 +28,7 @@ group :development do
 end
 
 group :test do
+  gem 'rspec-rails'
   gem 'factory_bot_rails'   # fixtures replacement with a straightforward definition syntax
   gem 'faker'               # generates fake data
   gem 'super_diff'          # intelligently display the differences between two data structures of any type in Rspec output
