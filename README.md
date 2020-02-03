@@ -17,3 +17,16 @@ Separation of concerns & Clean code
 Performance
 Scalable API (we would like to be able to support an email list of thousands of members)
 The amount of time it took you to implement the assignment
+
+# Result notes
+Application deployed to https://mobilize-test.herokuapp.com/
+there are  2 endpoints:
+- POST `/members`, expect :body param with list of hashes like:
+  {body: [{email: 'email@test.com', name: 'Jon'}, ...] }
+  
+- POST `/invites`, expect :body param with list of email addresses like:
+  {body: ['email@test.com', 'user@email.com, ...] }
+  
+currently my Sendgrid account is under review, so app is not fully functioned
+
+TODO: some specs should be written, but as soon as it is test task, and it was not requested in requirements, I do not write them now
