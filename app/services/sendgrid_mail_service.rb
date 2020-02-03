@@ -10,8 +10,9 @@ class SendgridMailService
   end
 
   def send_email(model)
-    @client.mail._('send').post(request_body: mail(model.attributes.symbolize_keys).to_json)
-      .then { |resp| {status: resp.status_code, body: resp.body} }
+    @client.mail._('send')
+           .post(request_body: mail(model.attributes.symbolize_keys).to_json)
+           .then { |resp| {status: resp.status_code, body: resp.body} }
   end
 
   private

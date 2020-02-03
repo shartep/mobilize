@@ -10,13 +10,15 @@ gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 
+gem 'activerecord-import'
 gem 'memoist'
+gem 'sidekiq'
 
 gem 'sendgrid-ruby'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mingw mri x64_mingw]
   gem 'dotenv-rails'
 end
 
@@ -33,8 +35,8 @@ group :development do
 end
 
 group :test do
-  gem 'rspec-rails'
   gem 'factory_bot_rails'   # fixtures replacement with a straightforward definition syntax
   gem 'faker'               # generates fake data
+  gem 'rspec-rails'
   gem 'super_diff'          # intelligently display the differences between two data structures of any type in Rspec output
 end

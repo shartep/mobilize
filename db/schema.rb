@@ -10,17 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_31_142042) do
+ActiveRecord::Schema.define(version: 2020_02_01_013205) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "invites", force: :cascade do |t|
+    t.bigint "member_id"
+    t.boolean "delivered"
+    t.string "response"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["member_id"], name: "index_invites_on_member_id"
+  end
 
   create_table "members", force: :cascade do |t|
     t.string "email"
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["email"], name: "index_members_on_email"
+    t.index ["email"], name: "index_members_on_email", unique: true
   end
 
+  add_foreign_key "invites", "members"
 end
