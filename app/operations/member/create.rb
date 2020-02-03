@@ -1,4 +1,4 @@
-module Member
+class Member
   # This operation responsible for creation Member models
   #   @param :members  expect to be Array of Hashes with :email and :name keys like
   #     [{email: 'email@test.com', name: 'Jon'}, {email: 'contact@example.com', name: 'Linda'}, ...]
